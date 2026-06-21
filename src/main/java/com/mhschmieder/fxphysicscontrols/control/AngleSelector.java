@@ -33,7 +33,7 @@ package com.mhschmieder.fxphysicscontrols.control;
 import com.mhschmieder.fxcontrols.control.DoubleSelector;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.measure.AngleUnit;
-import com.mhschmieder.jphysics.measure.AngleFormatUtilities;
+import com.mhschmieder.jphysics.util.AngleFormatUtilities;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.SingleSelectionModel;
