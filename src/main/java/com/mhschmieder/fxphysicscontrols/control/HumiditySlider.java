@@ -32,7 +32,7 @@ package com.mhschmieder.fxphysicscontrols.control;
 
 import com.mhschmieder.fxcontrols.control.NumberSlider;
 import com.mhschmieder.jcommons.util.ClientProperties;
-import com.mhschmieder.jphysics.HumidityUnit;
+import com.mhschmieder.jphysics.measure.HumidityUnit;
 import javafx.geometry.Orientation;
 
 public final class HumiditySlider extends NumberSlider {

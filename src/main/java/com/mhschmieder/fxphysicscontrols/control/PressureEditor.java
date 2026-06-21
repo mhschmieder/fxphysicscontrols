@@ -33,8 +33,8 @@ package com.mhschmieder.fxphysicscontrols.control;
 import com.mhschmieder.fxcontrols.control.DoubleEditor;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.PhysicsConstants;
-import com.mhschmieder.jphysics.PressureUnit;
-import com.mhschmieder.jphysics.UnitConversion;
+import com.mhschmieder.jphysics.measure.PressureUnit;
+import com.mhschmieder.jphysics.measure.UnitConversion;
 
 public class PressureEditor extends DoubleEditor {
 

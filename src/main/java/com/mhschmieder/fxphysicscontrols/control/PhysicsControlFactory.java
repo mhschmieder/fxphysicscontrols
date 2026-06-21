@@ -33,11 +33,11 @@ package com.mhschmieder.fxphysicscontrols.control;
 import com.mhschmieder.fxcontrols.control.ListViewUtilities;
 import com.mhschmieder.fxcontrols.control.XComboBox;
 import com.mhschmieder.jcommons.util.ClientProperties;
-import com.mhschmieder.jphysics.AngleUnit;
-import com.mhschmieder.jphysics.DistanceUnit;
-import com.mhschmieder.jphysics.PressureUnit;
-import com.mhschmieder.jphysics.TemperatureUnit;
-import com.mhschmieder.jphysics.WeightUnit;
+import com.mhschmieder.jphysics.measure.AngleUnit;
+import com.mhschmieder.jphysics.measure.DistanceUnit;
+import com.mhschmieder.jphysics.measure.PressureUnit;
+import com.mhschmieder.jphysics.measure.TemperatureUnit;
+import com.mhschmieder.jphysics.measure.WeightUnit;
 
 /**
  * This is a factory for generating customized controls for physics-based

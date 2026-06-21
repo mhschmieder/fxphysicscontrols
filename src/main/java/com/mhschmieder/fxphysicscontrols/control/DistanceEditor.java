@@ -32,8 +32,8 @@ package com.mhschmieder.fxphysicscontrols.control;
 
 import com.mhschmieder.fxcontrols.control.DoubleEditor;
 import com.mhschmieder.jcommons.util.ClientProperties;
-import com.mhschmieder.jphysics.DistanceUnit;
-import com.mhschmieder.jphysics.UnitConversion;
+import com.mhschmieder.jphysics.measure.DistanceUnit;
+import com.mhschmieder.jphysics.measure.UnitConversion;
 
 public class DistanceEditor extends DoubleEditor {
 

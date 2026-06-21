@@ -33,7 +33,7 @@ package com.mhschmieder.fxphysicscontrols.control;
 import com.mhschmieder.fxcontrols.control.NumberSlider;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jmath.MathUtilities;
-import com.mhschmieder.jphysics.AngleUnit;
+import com.mhschmieder.jphysics.measure.AngleUnit;
 import javafx.geometry.Orientation;
 import org.apache.commons.math3.util.FastMath;
 

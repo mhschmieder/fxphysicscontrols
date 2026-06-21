@@ -33,8 +33,8 @@ package com.mhschmieder.fxphysicscontrols.control;
 import com.mhschmieder.fxcontrols.control.NumberSlider;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.PhysicsConstants;
-import com.mhschmieder.jphysics.TemperatureUnit;
-import com.mhschmieder.jphysics.UnitConversion;
+import com.mhschmieder.jphysics.measure.TemperatureUnit;
+import com.mhschmieder.jphysics.measure.UnitConversion;
 import javafx.geometry.Orientation;
 
 public class TemperatureSlider extends NumberSlider {

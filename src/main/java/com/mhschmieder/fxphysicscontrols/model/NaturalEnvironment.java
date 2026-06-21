@@ -31,11 +31,11 @@
 package com.mhschmieder.fxphysicscontrols.model;
 
 import com.mhschmieder.fxgraphics.beans.BeanFactory;
-import com.mhschmieder.jphysics.HumidityUnit;
+import com.mhschmieder.jphysics.measure.HumidityUnit;
 import com.mhschmieder.jphysics.PhysicsConstants;
-import com.mhschmieder.jphysics.PressureUnit;
-import com.mhschmieder.jphysics.TemperatureUnit;
-import com.mhschmieder.jphysics.UnitConversion;
+import com.mhschmieder.jphysics.measure.PressureUnit;
+import com.mhschmieder.jphysics.measure.TemperatureUnit;
+import com.mhschmieder.jphysics.measure.UnitConversion;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
