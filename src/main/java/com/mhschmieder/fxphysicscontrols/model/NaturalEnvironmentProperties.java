@@ -44,7 +44,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 
 import java.util.Objects;
 
-public final class NaturalEnvironment {
+public final class NaturalEnvironmentProperties {
 
     // Declare default constants, where appropriate, for all fields.
     public static final double    TEMPERATURE_K_DEFAULT           =
@@ -69,7 +69,7 @@ public final class NaturalEnvironment {
      * This is the default constructor; it sets all instance variables to
      * default values, initializing anything that requires memory allocation.
      */
-    public NaturalEnvironment() {
+    public NaturalEnvironmentProperties() {
         this( TEMPERATURE_K_DEFAULT,
               HUMIDITY_RELATIVE_DEFAULT,
               PRESSURE_PA_DEFAULT,
@@ -89,10 +89,10 @@ public final class NaturalEnvironment {
      *            {@code true} if Air Attenuation should be applied by
      *            downstream consumers of this environmental variable wrapper
      */
-    public NaturalEnvironment( final double pTemperatureK,
-                               final double pHumidityRelative,
-                               final double pPressurePa,
-                               final boolean pAirAttenuationApplied ) {
+    public NaturalEnvironmentProperties(final double pTemperatureK,
+                                        final double pHumidityRelative,
+                                        final double pPressurePa,
+                                        final boolean pAirAttenuationApplied ) {
         temperatureK = new SimpleDoubleProperty( pTemperatureK );
         humidityRelative = new SimpleDoubleProperty( pHumidityRelative );
         pressurePa = new SimpleDoubleProperty( pPressurePa );
@@ -113,14 +113,14 @@ public final class NaturalEnvironment {
      * guarantee that the source object is never modified by the new target
      * object created here.
      *
-     * @param pNaturalEnvironment
+     * @param pNaturalEnvironmentProperties
      *            The Natural Environment reference for the copy
      */
-    public NaturalEnvironment( final NaturalEnvironment pNaturalEnvironment ) {
-        this( pNaturalEnvironment.getTemperatureK(),
-              pNaturalEnvironment.getHumidityRelative(),
-              pNaturalEnvironment.getPressurePa(),
-              pNaturalEnvironment.isAirAttenuationApplied() );
+    public NaturalEnvironmentProperties(final NaturalEnvironmentProperties pNaturalEnvironmentProperties) {
+        this( pNaturalEnvironmentProperties.getTemperatureK(),
+              pNaturalEnvironmentProperties.getHumidityRelative(),
+              pNaturalEnvironmentProperties.getPressurePa(),
+              pNaturalEnvironmentProperties.isAirAttenuationApplied() );
     }
 
     // NOTE: Cloning is disabled as it is dangerous; use the copy constructor
@@ -138,12 +138,12 @@ public final class NaturalEnvironment {
         if ( ( other == null ) || ( getClass() != other.getClass() ) ) {
             return false;
         }
-        final NaturalEnvironment otherNaturalEnvironment = ( NaturalEnvironment ) other;
-        return Objects.equals( temperatureK, otherNaturalEnvironment.temperatureK )
-                && Objects.equals( humidityRelative, otherNaturalEnvironment.humidityRelative )
-                && Objects.equals( pressurePa, otherNaturalEnvironment.pressurePa )
+        final NaturalEnvironmentProperties otherNaturalEnvironmentProperties = (NaturalEnvironmentProperties) other;
+        return Objects.equals( temperatureK, otherNaturalEnvironmentProperties.temperatureK )
+                && Objects.equals( humidityRelative, otherNaturalEnvironmentProperties.humidityRelative )
+                && Objects.equals( pressurePa, otherNaturalEnvironmentProperties.pressurePa )
                 && Objects.equals( airAttenuationApplied,
-                                   otherNaturalEnvironment.airAttenuationApplied );
+                                   otherNaturalEnvironmentProperties.airAttenuationApplied );
     }
 
     @Override
@@ -185,14 +185,14 @@ public final class NaturalEnvironment {
     /**
      * Copy pseudo-constructor.
      *
-     * @param pNaturalEnvironment
+     * @param pNaturalEnvironmentProperties
      *            The Natural Environment reference for setting the values
      */
-    public void setNaturalEnvironment( final NaturalEnvironment pNaturalEnvironment ) {
-        setNaturalEnvironment( pNaturalEnvironment.getTemperatureK(),
-                               pNaturalEnvironment.getHumidityRelative(),
-                               pNaturalEnvironment.getPressurePa(),
-                               pNaturalEnvironment.isAirAttenuationApplied() );
+    public void setNaturalEnvironment( final NaturalEnvironmentProperties pNaturalEnvironmentProperties) {
+        setNaturalEnvironment( pNaturalEnvironmentProperties.getTemperatureK(),
+                               pNaturalEnvironmentProperties.getHumidityRelative(),
+                               pNaturalEnvironmentProperties.getPressurePa(),
+                               pNaturalEnvironmentProperties.isAirAttenuationApplied() );
     }
 
     public DoubleProperty temperatureKProperty() {
