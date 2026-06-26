@@ -60,11 +60,11 @@ public class PhysicsControlFactory {
     private PhysicsControlFactory() {}
 
     // Helper method to get an Angle Editor, standalone or paired.
-    public static final AngleEditor makeAngleEditor( final ClientProperties clientProperties,
-                                                     final String tooltipText,
-                                                     final double minimumValue,
-                                                     final double maximumValue,
-                                                     final double initialValue ) {
+    public static AngleEditor makeAngleEditor(final ClientProperties clientProperties,
+                                              final String tooltipText,
+                                              final double minimumValue,
+                                              final double maximumValue,
+                                              final double initialValue) {
         return makeAngleEditor( clientProperties,
                                 tooltipText,
                                 AngleUnit.DEGREES.abbreviation(),
@@ -74,12 +74,12 @@ public class PhysicsControlFactory {
     }
 
     // Helper method to get an Angle Editor, standalone or paired.
-    public static final AngleEditor makeAngleEditor( final ClientProperties clientProperties,
-                                                     final String tooltipText,
-                                                     final String measurementUnit,
-                                                     final double minimumValue,
-                                                     final double maximumValue,
-                                                     final double initialValue ) {
+    public static AngleEditor makeAngleEditor(final ClientProperties clientProperties,
+                                              final String tooltipText,
+                                              final String measurementUnit,
+                                              final double minimumValue,
+                                              final double maximumValue,
+                                              final double initialValue) {
         return makeAngleEditor( clientProperties,
                                 tooltipText,
                                 0,
@@ -93,16 +93,16 @@ public class PhysicsControlFactory {
     }
 
     // Helper method to get an Angle Editor, standalone or paired.
-    public static final AngleEditor makeAngleEditor( final ClientProperties clientProperties,
-                                                     final String tooltipText,
-                                                     final int minFractionDigitsFormat,
-                                                     final int maxFractionDigitsFormat,
-                                                     final int minFractionDigitsParse,
-                                                     final int maxFractionDigitsParse,
-                                                     final String measurementUnit,
-                                                     final double minimumValue,
-                                                     final double maximumValue,
-                                                     final double initialValue ) {
+    public static AngleEditor makeAngleEditor(final ClientProperties clientProperties,
+                                              final String tooltipText,
+                                              final int minFractionDigitsFormat,
+                                              final int maxFractionDigitsFormat,
+                                              final int minFractionDigitsParse,
+                                              final int maxFractionDigitsParse,
+                                              final String measurementUnit,
+                                              final double minimumValue,
+                                              final double maximumValue,
+                                              final double initialValue) {
         // Get the current value and format it as initial text.
         final String initialText = Double.toString( initialValue ) + measurementUnit;
 
@@ -123,17 +123,17 @@ public class PhysicsControlFactory {
     }
 
     // Helper method to get an Angle Editor, standalone or paired.
-    public static final AngleEditor makeAngleEditor( final ClientProperties clientProperties,
-                                                     final String tooltipText,
-                                                     final int minFractionDigitsFormat,
-                                                     final int maxFractionDigitsFormat,
-                                                     final int minFractionDigitsParse,
-                                                     final int maxFractionDigitsParse,
-                                                     final String measurementUnit,
-                                                     final double minimumValue,
-                                                     final double maximumValue,
-                                                     final double initialValue,
-                                                     final double valueIncrement ) {
+    public static AngleEditor makeAngleEditor(final ClientProperties clientProperties,
+                                              final String tooltipText,
+                                              final int minFractionDigitsFormat,
+                                              final int maxFractionDigitsFormat,
+                                              final int minFractionDigitsParse,
+                                              final int maxFractionDigitsParse,
+                                              final String measurementUnit,
+                                              final double minimumValue,
+                                              final double maximumValue,
+                                              final double initialValue,
+                                              final double valueIncrement) {
         // Get the current value and format it as initial text.
         final String initialText = Double.toString( initialValue ) + measurementUnit;
 
@@ -176,18 +176,16 @@ public class PhysicsControlFactory {
                                                     final int minFractionDigitsParse,
                                                     final int maxFractionDigitsParse) {
         // Use the current slider value and limits to set the number textField.
-        final AngleEditor angleEditor = makeAngleEditor( clientProperties,
-                                                         null,
-                                                         minFractionDigitsFormat,
-                                                         maxFractionDigitsFormat,
-                                                         minFractionDigitsParse,
-                                                         maxFractionDigitsParse,
-                                                         angleSlider.getMeasurementUnitString(),
-                                                         angleSlider.getMin(),
-                                                         angleSlider.getMax(),
-                                                         angleSlider.getValue() );
-
-        return angleEditor;
+        return makeAngleEditor( clientProperties,
+                                 null,
+                                 minFractionDigitsFormat,
+                                 maxFractionDigitsFormat,
+                                 minFractionDigitsParse,
+                                 maxFractionDigitsParse,
+                                 angleSlider.getMeasurementUnitString(),
+                                 angleSlider.getMin(),
+                                 angleSlider.getMax(),
+                                 angleSlider.getValue() );
     }
 
     // Helper method to get a custom Temperature Editor.
@@ -197,19 +195,18 @@ public class PhysicsControlFactory {
         final double initialValue = TemperatureSlider.INITIAL_TEMPERATURE_KELVIN_DEFAULT;
         final String initialText = Double.toString( initialValue );
 
-        final TemperatureEditor temperatureEditor =
-                                                  new TemperatureEditor( clientProperties,
-                                                                         initialText,
-                                                                         null,
-                                                                         TemperatureSlider.MINIMUM_TEMPERATURE_KELVIN_DEFAULT,
-                                                                         TemperatureSlider.MAXIMUM_TEMPERATURE_KELVIN_DEFAULT,
-                                                                         initialValue );
-
-        return temperatureEditor;
+        return new TemperatureEditor(
+                clientProperties,
+               initialText,
+               null,
+               TemperatureSlider.MINIMUM_TEMPERATURE_KELVIN_DEFAULT,
+               TemperatureSlider.MAXIMUM_TEMPERATURE_KELVIN_DEFAULT,
+               initialValue );
     }
 
     // Helper method to get a custom Pressure Editor.
-    public static PressureEditor makePressureEditor(final ClientProperties clientProperties) {
+    public static PressureEditor makePressureEditor(
+            final ClientProperties clientProperties) {
         // Format the default Pressure value as the initial text.
         final double initialValue = PressureSlider.INITIAL_PRESSURE_PASCALS_DEFAULT;
         final String initialText = Double.toString( initialValue );
@@ -314,5 +311,32 @@ public class PhysicsControlFactory {
                         supportedValues,
                         "Supported Pressure Units",
                         defaultPressureUnit );
+    }
+
+    // Helper method to get a standalone Frequency Editor.
+    public static FrequencyEditor getFrequencyEditor( final ClientProperties clientProperties,
+                                                      final String tooltipText,
+                                                      final String measurementUnitString,
+                                                      final double minimumValue,
+                                                      final double maximumValue,
+                                                      final double initialValue,
+                                                      final double pPrecisionCutoffFrequencyHz,
+                                                      final int pNumberOfDecimalPlaces ) {
+        // Get the current value and format it as initial text.
+        // TODO: Make sure this is locale-sensitive?
+        final String initialText = Double.toString( initialValue );
+
+        final FrequencyEditor frequencyEditor = new FrequencyEditor( clientProperties,
+                initialText,
+                tooltipText,
+                minimumValue,
+                maximumValue,
+                initialValue,
+                pPrecisionCutoffFrequencyHz,
+                pNumberOfDecimalPlaces );
+
+        frequencyEditor.setMeasurementUnitString( measurementUnitString );
+
+        return frequencyEditor;
     }
 }
