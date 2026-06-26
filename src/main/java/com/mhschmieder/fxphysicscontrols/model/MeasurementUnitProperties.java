@@ -44,12 +44,12 @@ import javafx.beans.property.SimpleObjectProperty;
  * likely needed by most applications that partially or fully model the real
  * physical world. Distance Unit is included as it is also used in Physics.
  */
-public final class MeasurementUnits {
+public final class MeasurementUnitProperties {
 
     // Declare a static instance of an explicit default metric measurement
     // (MKS).
-    public static final MeasurementUnits            MKS =
-                                                        new MeasurementUnits( DistanceUnit.METERS,
+    public static final MeasurementUnitProperties MKS =
+                                                        new MeasurementUnitProperties( DistanceUnit.METERS,
                                                                               AngleUnit.RADIANS,
                                                                               WeightUnit.KILOGRAMS,
                                                                               TemperatureUnit.KELVIN,
@@ -79,7 +79,7 @@ public final class MeasurementUnits {
      * This is the default constructor; it sets all instance variables to
      * default values in the standard standard MKS scientific unit system.
      */
-    public MeasurementUnits() {
+    public MeasurementUnitProperties() {
         this( DistanceUnit.defaultValue(),
               AngleUnit.defaultValue(),
               WeightUnit.defaultValue(),
@@ -101,11 +101,11 @@ public final class MeasurementUnits {
      * @param pPressureUnit
      *            The Pressure Unit to use
      */
-    public MeasurementUnits( final DistanceUnit pDistanceUnit,
-                             final AngleUnit pAngleUnit,
-                             final WeightUnit pWeightUnit,
-                             final TemperatureUnit pTemperatureUnit,
-                             final PressureUnit pPressureUnit ) {
+    public MeasurementUnitProperties(final DistanceUnit pDistanceUnit,
+                                     final AngleUnit pAngleUnit,
+                                     final WeightUnit pWeightUnit,
+                                     final TemperatureUnit pTemperatureUnit,
+                                     final PressureUnit pPressureUnit ) {
         distanceUnit = new SimpleObjectProperty<>( pDistanceUnit );
         angleUnit = new SimpleObjectProperty<>( pAngleUnit );
         weightUnit = new SimpleObjectProperty<>( pWeightUnit );
@@ -129,15 +129,15 @@ public final class MeasurementUnits {
      * guarantee that the source object is never modified by the new target
      * object created here.
      *
-     * @param pMeasurementUnits
+     * @param pMeasurementUnitProperties
      *            The Measurement Units reference for the copy
      */
-    public MeasurementUnits( final MeasurementUnits pMeasurementUnits ) {
-        this( pMeasurementUnits.getDistanceUnit(),
-              pMeasurementUnits.getAngleUnit(),
-              pMeasurementUnits.getWeightUnit(),
-              pMeasurementUnits.getTemperatureUnit(),
-              pMeasurementUnits.getPressureUnit() );
+    public MeasurementUnitProperties(final MeasurementUnitProperties pMeasurementUnitProperties) {
+        this( pMeasurementUnitProperties.getDistanceUnit(),
+              pMeasurementUnitProperties.getAngleUnit(),
+              pMeasurementUnitProperties.getWeightUnit(),
+              pMeasurementUnitProperties.getTemperatureUnit(),
+              pMeasurementUnitProperties.getPressureUnit() );
     }
 
     public void makeBooleanBindings() {
@@ -239,10 +239,10 @@ public final class MeasurementUnits {
         if ( obj == null ) {
             return false;
         }
-        if ( !( obj instanceof MeasurementUnits ) ) {
+        if ( !( obj instanceof MeasurementUnitProperties) ) {
             return false;
         }
-        final MeasurementUnits other = ( MeasurementUnits ) obj;
+        final MeasurementUnitProperties other = (MeasurementUnitProperties) obj;
         if ( distanceUnit == null ) {
             if ( other.distanceUnit != null ) {
                 return false;
@@ -344,15 +344,15 @@ public final class MeasurementUnits {
     /**
      * Copy pseudo-constructor. Unused at this time (201602).
      *
-     * @param pMeasurementUnits
+     * @param pMeasurementUnitProperties
      *            The Measurement Units to use to set this object
      */
-    protected void setMeasurementUnits( final MeasurementUnits pMeasurementUnits ) {
-        setMeasurementUnits( pMeasurementUnits.getDistanceUnit(),
-                             pMeasurementUnits.getAngleUnit(),
-                             pMeasurementUnits.getWeightUnit(),
-                             pMeasurementUnits.getTemperatureUnit(),
-                             pMeasurementUnits.getPressureUnit() );
+    protected void setMeasurementUnits( final MeasurementUnitProperties pMeasurementUnitProperties) {
+        setMeasurementUnits( pMeasurementUnitProperties.getDistanceUnit(),
+                             pMeasurementUnitProperties.getAngleUnit(),
+                             pMeasurementUnitProperties.getWeightUnit(),
+                             pMeasurementUnitProperties.getTemperatureUnit(),
+                             pMeasurementUnitProperties.getPressureUnit() );
     }
 
     public ObjectProperty< DistanceUnit > distanceUnitProperty() {
